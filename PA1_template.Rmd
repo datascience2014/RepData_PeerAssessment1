@@ -114,3 +114,4 @@ library(lattice)
 xyplot(steps ~ interval | datetype, new_activity_avg, 
        type="l", lwd=1, xlab="Interval", ylab="Number of steps", layout=c(1,2))
 ```
+There are some difference based on this plot.  More activities happened throughtout the day during the weekday.

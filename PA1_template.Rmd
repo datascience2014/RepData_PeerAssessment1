@@ -59,7 +59,7 @@ The total number of missing values in the dataset is: `r total_miss_value`
 
 2.Devise a strategy for filling in all of the missing values in the dataset.
       
-  Use the means for the 5-minute intervals as fillers for missing values
+  The strategy that I am using at here is to use the means for the 5-minute intervals as fillers for missing values.
 
 3.Create a new dataset that is equal to the original dataset but with the missing data filled in.
 ```{r, echo = TRUE}
@@ -95,6 +95,7 @@ Do these values differ from the estimates from the first part of the assignment?
   yes.  The mean value unchanged but the median value increased and it is the same as mean.
   
 What is the impact of imputing missing data on the estimates of the total daily number of steps?
+  
   Imputing the missing data seems incresed the peak value but no impact of the data distribution.
   
 ## Are there differences in activity patterns between weekdays and weekends?

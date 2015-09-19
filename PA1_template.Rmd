@@ -1,6 +1,8 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
-output: html_document
+title: 'Reproducible Research: Peer Assessment 1'
+output:
+  html_document:
+    self_contained: no
 ---
 
 Loading and preprocessing the data

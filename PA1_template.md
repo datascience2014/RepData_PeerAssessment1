@@ -150,4 +150,5 @@ xyplot(steps ~ interval | datetype, new_activity_avg,
 ```
 
 ![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
-There are some difference based on this plot.  More activities happened throughtout the day during the weekday.
+
+- There are some difference based on this plot. More activities happened throughtout the day during the weekday.

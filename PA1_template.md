@@ -5,7 +5,7 @@ output:
     self_contained: no
 ---
 
-Loading and preprocessing the data
+## Loading and preprocessing the data
 
 1.Load the data 
 
@@ -19,7 +19,7 @@ activity <- read.csv("activity.csv")
 activity$date <- as.Date(activity$date, "%Y-%m-%d")
 ```
 
-What is mean total number of steps taken per day?
+## What is mean total number of steps taken per day?
 
 
 1. Make a histogram of the total number of steps taken each day
@@ -40,7 +40,7 @@ median_step <- median(steps.date$steps)
 Mean: 1.0766189 &times; 10<sup>4</sup>
 Median: 10765
 
-What is the average daily activity pattern?
+## What is the average daily activity pattern?
 
 1.Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
@@ -58,7 +58,7 @@ max_interval <-average_steps.interval$interval[which.max(average_steps.interval$
 ```
 The interval contains the maximum number of steps is: 835
 
-Imputing missing values
+## Imputing missing values
 
 1.Calculate and report the total number of missing values in the dataset 
 
@@ -115,7 +115,7 @@ Do these values differ from the estimates from the first part of the assignment?
 What is the impact of imputing missing data on the estimates of the total daily number of steps?
   Imputing the missing data seems incresed the peak value but no impact of the data distribution.
   
-Are there differences in activity patterns between weekdays and weekends?
+## Are there differences in activity patterns between weekdays and weekends?
 
 1.Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
@@ -131,13 +131,6 @@ new_activity$datetype <-  ifelse(as.POSIXlt(new_activity$date)$wday %in% c(0,6),
 new_activity_avg <- aggregate(steps ~ interval + datetype, data=new_activity, mean)
 
 library(lattice)
-```
-
-```
-## Warning: package 'lattice' was built under R version 3.1.3
-```
-
-```r
 xyplot(steps ~ interval | datetype, new_activity_avg, 
        type="l", lwd=1, xlab="Interval", ylab="Number of steps", layout=c(1,2))
 ```

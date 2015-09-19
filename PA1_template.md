@@ -26,7 +26,12 @@ activity$date <- as.Date(activity$date, "%Y-%m-%d")
 
 ```r
 steps.date <- aggregate(steps ~ date, data = activity, FUN = sum)
-hist(steps.date$steps, main = "Total Steps Each Day", xlab = "date", ylab = "steps", col="blue")
+library("ggplot2")
+qplot(steps.date$steps, main = "Total Steps Each Day", xlab = "date", ylab = "steps")
+```
+
+```
+## stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
 ```
 
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
@@ -37,8 +42,8 @@ hist(steps.date$steps, main = "Total Steps Each Day", xlab = "date", ylab = "ste
 mean_step <- mean(steps.date$steps)
 median_step <- median(steps.date$steps)
 ```
-Mean: 1.0766189 &times; 10<sup>4</sup>
-Median: 10765
+- Mean: 1.0766189 &times; 10<sup>4</sup>
+- Median: 10765
 
 ## What is the average daily activity pattern?
 
@@ -56,7 +61,8 @@ plot(average_steps.interval, type = "l")
 ```r
 max_interval <-average_steps.interval$interval[which.max(average_steps.interval$steps)]
 ```
-The interval contains the maximum number of steps is: 835
+
+- The interval contains the maximum number of steps is: 835
 
 ## Imputing missing values
 
@@ -66,11 +72,12 @@ The interval contains the maximum number of steps is: 835
 ```r
 total_miss_value<- length(which(is.na(activity$steps)))
 ```
-The total number of missing values in the dataset is: 2304 
+
+- The total number of missing values in the dataset is: 2304 
 
 2.Devise a strategy for filling in all of the missing values in the dataset.
       
-  The strategy that I am using at here is to use the means for the 5-minute intervals as fillers for missing values.
+- The strategy that I am using at here is to use the means for the 5-minute intervals as fillers for missing values.
 
 3.Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
@@ -88,7 +95,11 @@ new_activity <- new_activity[, c(1:3)]
 
 ```r
 new_steps.date <- aggregate(steps ~ date, data = new_activity, FUN = sum)
-hist(new_steps.date$steps, main = "Total Steps Each Day", xlab = "date", ylab = "steps", col="Red")
+qplot(new_steps.date$steps, main = "Total Steps Each Day", xlab = "date", ylab = "steps")
+```
+
+```
+## stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
 ```
 
 ![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 
@@ -97,20 +108,22 @@ hist(new_steps.date$steps, main = "Total Steps Each Day", xlab = "date", ylab = 
 new_mean_step <- mean(new_steps.date$steps)
 new_median_step <- median(new_steps.date$steps)
 ```
-Mean: 1.0766189 &times; 10<sup>4</sup>
-Median: 1.0766189 &times; 10<sup>4</sup>
+- Mean: 1.0766189 &times; 10<sup>4</sup>
+- Median: 1.0766189 &times; 10<sup>4</sup>
 
 Do these values differ from the estimates from the first part of the assignment? 
-  
-  Before imputing missing data
-  Mean: 1.0766189 &times; 10<sup>4</sup>
-  Median: 10765
 
-  After imputing missing data
-  Mean: 1.0766189 &times; 10<sup>4</sup>
-  Median: 1.0766189 &times; 10<sup>4</sup>
+- yes.  The mean value unchanged but the median value increased and it is the same as mean.
   
-  yes.  The mean value unchanged but the median value increased and it is the same as mean.
+Before imputing missing data
+- Mean: 1.0766189 &times; 10<sup>4</sup>
+- Median: 10765
+
+After imputing missing data
+- Mean: 1.0766189 &times; 10<sup>4</sup>
+- Median: 1.0766189 &times; 10<sup>4</sup>
+  
+  
   
 What is the impact of imputing missing data on the estimates of the total daily number of steps?
   

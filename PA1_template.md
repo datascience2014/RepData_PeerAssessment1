@@ -30,10 +30,6 @@ library("ggplot2")
 qplot(steps.date$steps, main = "Total Steps Each Day", xlab = "date", ylab = "steps")
 ```
 
-```
-## stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
-```
-
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
 
 2. Calculate and report the mean and median of the total number of steps taken per day

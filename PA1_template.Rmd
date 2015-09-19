@@ -21,7 +21,7 @@ activity$date <- as.Date(activity$date, "%Y-%m-%d")
 
 
 1. Make a histogram of the total number of steps taken each day
-```{r, echo = TRUE}
+```{r, echo = TRUE, message = FALSE}
 steps.date <- aggregate(steps ~ date, data = activity, FUN = sum)
 library("ggplot2")
 qplot(steps.date$steps, main = "Total Steps Each Day", xlab = "date", ylab = "steps")
@@ -38,7 +38,7 @@ median_step <- median(steps.date$steps)
 ## What is the average daily activity pattern?
 
 1.Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
-```{r, echo = TRUE}
+```{r, echo = TRUE, message = FALSE}
 average_steps.interval <- aggregate(steps ~ interval, data = activity, FUN = mean)
 plot(average_steps.interval, type = "l")
 ```
